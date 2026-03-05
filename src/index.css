@@ -31,6 +31,36 @@ body {
   to   { transform: translateX(-50%); }
 }
 
+/* About card — always side-by-side */
+.about-card {
+  flex-direction: row;
+}
+.about-left {
+  flex: 1;
+  order: 1;
+  min-height: 280px;
+}
+.about-right {
+  width: 38.98%;
+  flex-shrink: 0;
+  order: 2;
+}
+
+@media (min-width: 640px) {
+  .about-card {
+    aspect-ratio: 885 / 460;
+  }
+  .about-left {
+    width: 61.02%;
+    flex: unset;
+    flex-shrink: 0;
+  }
+  .about-right {
+    flex: 1;
+    width: unset;
+  }
+}
+
 @media (max-width: 768px) {
   .event-info-container {
     top: 76.9% !important;

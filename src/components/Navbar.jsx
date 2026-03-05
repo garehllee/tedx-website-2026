@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 const navLinks = [
-  { name: 'Schedule', path: '/schedule' },
-  { name: 'Speakers', path: '/speakers' },
-  { name: 'Innovation Expo', path: '/innovations-expo' },
-  { name: 'About', path: '/about' },
+  { name: 'SCHEDULE', path: '/schedule' },
+  { name: 'SPEAKERS', path: '/speakers' },
+  { name: 'INNOVATION EXPO', path: '/innovations-expo' },
+  { name: 'ABOUT', path: '/about' },
+  { name: 'OUR TEAM', path: '/team' },
 ]
 
 const TICKET_URL = 'https://tartanconnect.cmu.edu/tedxcmu/rsvp_boot?id=1935342'
@@ -33,17 +34,21 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center gap-4 lg:gap-[34px]">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className="text-center text-sm lg:text-xl whitespace-nowrap transition-colors duration-200"
-              style={{ color: location.pathname === link.path ? '#52A5FF' : 'white' }}
-              style={{ fontWeight: 400 }}
-            >
-              {link.name}
-            </Link>
+        <div className="hidden md:flex items-center gap-2 lg:gap-[18px]">
+          {navLinks.map((link, i) => (
+            <>
+              {i > 0 && (
+                <span key={`sep-${i}`} style={{ color: 'white', opacity: 0.5, fontWeight: 400 }}>//</span>
+              )}
+              <Link
+                key={link.path}
+                to={link.path}
+                className="text-center text-sm lg:text-base whitespace-nowrap transition-colors duration-200"
+                style={{ color: location.pathname === link.path ? '#52A5FF' : 'white', fontWeight: 400 }}
+              >
+                {link.name}
+              </Link>
+            </>
           ))}
         </div>
 
@@ -97,6 +102,7 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
+
           <a
             href={TICKET_URL}
             target="_blank"

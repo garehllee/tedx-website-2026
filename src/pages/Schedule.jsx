@@ -10,27 +10,29 @@ const scheduleItems = [
     title: 'Introduction',
   },
   {
-    type: 'talk',
-    time: '4:40pm-5:00pm',
-    title: 'Is Reality TV Really Ethical? Through the Lens of a Childhood Reality TV Star.',
-    speaker: {
-      name: 'Nia Sioux',
-      description: 'Actress, Dancer, Content Creator, and New York Times Best Selling Author',
-      avatar: '/Nia_Headshot.png',
-    },
-    description: 'Is reality tv ethical? This talk will explore the ethics of reality tv through the lens of a former childhood reality tv star with a focus on the importance of media literacy skills and its application. The intersectionality of reality tv in the news, pop culture, social media, and politics makes this a relevant topic in today’s ever-changing world. As an educated society, who is ultimately responsible for the consumption of media and what role do they play in the narratives that are told?',
+  type: 'talk',
+  time: '4:40pm-5:00pm',
+  title: 'Is Reality TV Really Ethical? Through the Lens of a Childhood Reality TV Star.',
+  speaker: {
+    name: 'Nia Sioux',
+    description: 'Actress, Dancer, Content Creator, and New York Times Best Selling Author',
+    avatar: '/Nia_Headshot.png',
   },
-  {
-    type: 'talk',
-    time: '5:00pm-5:20pm',
-    title: 'Helping People Laugh Daily',
-    speaker: {
-      name: 'Joel Byars',
-      description: 'Comedian and Podcaster',
-      avatar: '/Joel%20Headshot.png',
-    },
-    description: 'Talk description goes here.',
+  description: 'Is reality tv ethical? This talk will explore the ethics of reality tv through the lens of a former childhood reality tv star with a focus on the importance of media literacy skills and its application. The intersectionality of reality tv in the news, pop culture, social media, and politics makes this a relevant topic in today\'s ever-changing world. As an educated society, who is ultimately responsible for the consumption of media and what role do they play in the narratives that are told?',
+  icon: '/icon 1.png',
+},
+{
+  type: 'talk',
+  time: '5:00pm-5:20pm',
+  title: 'Helping People Laugh Daily',
+  speaker: {
+    name: 'Joel Byars',
+    description: 'Comedian and Podcaster',
+    avatar: '/Joel%20Headshot.png',
   },
+  description: 'Talk description goes here.',
+  icon: '/icon 2.png',
+},
   {
     type: 'simple',
     time: '5:20pm-6:00pm',
@@ -46,6 +48,7 @@ const scheduleItems = [
       avatar: '/Missi%20Headshot.png',
     },
     description: 'Sports are a defining part of Pittsburgh culture. Growing up an athlete and currently working as a reporter for the Pittsburgh Steelers, Missi Matthews now sees her childhood and profession intersecting with how she speaks to her young boys. What does it mean to shape our communities, from the lessons we pass along to our children to fueling the fire of a 92-year-old fandom, and how do we consider the impact of our words in inspiring the generations that follow us? Just months away from the Pittsburgh-based NFL Draft, Missi reflects on the true life lessons found in talking about sports for a living.',
+    icon: '/icon 5.png',
   },
   {
     type: 'talk',
@@ -57,6 +60,7 @@ const scheduleItems = [
       avatar: '/Jona%20Headshot.png',
     },
     description: 'Talk description goes here.',
+    icon: '/icon 4.png',
   },
   {
     type: 'talk',
@@ -68,6 +72,7 @@ const scheduleItems = [
       avatar: '/David%20headshot.png',
     },
     description: 'Talk description goes here.',
+    icon: '/icon 5.png',
   },
   {
     type: 'simple',
@@ -92,13 +97,20 @@ function SimpleCard({ title }) {
   )
 }
 
-function TalkCard({ title, speaker, description }) {
+function TalkCard({ title, speaker, description, icon }) {
   return (
     <div style={{width: '100%', position: 'relative', background: 'linear-gradient(90deg, #272525 50%, #0036D8 100%)', overflow: 'hidden', borderRadius: 20, outline: '0.14vw white solid', outlineOffset: '-0.14vw'}}>
       {/* Rotated decorative vector — desktop only */}
       <div className="hidden md:block" style={{width: '100%', height: '100%', position: 'absolute', transform: 'rotate(90deg)', transformOrigin: 'top left', outline: '0.14vw white solid', outlineOffset: '-0.07vw'}} />
       {/* Vertical separator — desktop only */}
       <div className="hidden md:block" style={{position: 'absolute', top: 0, bottom: 0, right: '30.14vw', width: '0.14vw', background: 'white'}} />
+
+      {/* Icon in right panel — desktop only */}
+      {icon && (
+        <div className="hidden md:flex" style={{position: 'absolute', top: 0, bottom: 0, right: 0, width: '30.14vw', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none'}}>
+          <img src={icon} alt="" style={{width: '55%', height: '70%', objectFit: 'contain'}} />
+        </div>
+      )}
 
       {/* Title */}
       <div
@@ -150,7 +162,7 @@ export default function Schedule() {
             {item.type === 'simple' ? (
               <SimpleCard title={item.title} />
             ) : (
-              <TalkCard title={item.title} speaker={item.speaker} description={item.description} />
+              <TalkCard title={item.title} speaker={item.speaker} description={item.description} icon={item.icon} />
             )}
           </div>
         ))}

@@ -5,6 +5,7 @@ import Schedule from './pages/Schedule'
 import Speakers from './pages/Speakers'
 import InnovationsExpo from './pages/InnovationsExpo'
 import About from './pages/About'
+import Team from './pages/Team'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/speakers" element={<Speakers />} />
           <Route path="/innovations-expo" element={<InnovationsExpo />} />
           <Route path="/about" element={<About />} />
+          <Route path="/team" element={<Team />} />
         </Routes>
       </main>
     </BrowserRouter>

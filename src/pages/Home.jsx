@@ -96,7 +96,7 @@ export default function Home() {
       </div>
 
       {/* Scroll-driven Teaser Video */}
-      <section ref={teaserRef} style={{ position: 'relative', height: '250vh' }}>
+      <section ref={teaserRef} style={{ position: 'relative', height: '500vh' }}>
         <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden' }}>
           <video
             ref={teaserVideoRef}
@@ -105,7 +105,7 @@ export default function Home() {
             preload="auto"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           >
-            <source src="/eunoiateaser-sped.mp4" type="video/mp4" />
+            <source src="/finalteaser1 no sound.mp4" type="video/mp4" />
           </video>
         </div>
       </section>
